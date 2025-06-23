@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>View Elections to Voter</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background: linear-gradient(to right, #ff7e5f, #feb47b);
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			width: 80%;
+			margin: 50px auto;
+			padding: 20px;
+			background: #ffffff;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			color: #2c3e50;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 50px;
+			background-color: white;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 12px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #2c3e50;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		.action-buttons a {
+			text-decoration: none;
+			color: #ffffff;
+			background-color: #2c3e50;
+			padding: 6px 12px;
+			border-radius: 4px;
+			margin: 0 4px;
+		}
+
+		.action-buttons a:hover {
+			background-color: #4169e1;
+		}
+
+		.back-button a {
+			text-decoration: none;
+			color: #ffffff;
+			background-color: #E67E22;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			display: inline-block;
+		}
+
+		.back-button a:hover {
+			background-color: #e53935;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Available Elections</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Election Name</th>
+					<th>Description</th>
+					<th>From Date</th>
+					<th>State</th>
+					<th>City</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="election : ${elections}">
+					<td th:text="${election.name}"></td>
+					<td th:text="${election.description}"></td>
+					<td th:text="${election.date}"></td>
+					<td th:text="${election.state}"></td>
+					<td th:text="${election.city}"></td>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

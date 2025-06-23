@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Main Dashboard</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f4f4;
+		}
+
+		.header {
+			background-color: rgb(255, 128, 0);
+			color: white;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.wrapper {
+			display: flex;
+			height: 100vh;
+		}
+
+		.sidebar {
+			width: 250px;
+			background-color: #2c3e50;
+			color: white;
+			padding: 20px;
+			box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.sidebar h2 {
+			text-align: center;
+			margin-bottom: 30px;
+			font-size: 30px;
+		}
+
+		.sidebar a {
+			display: block;
+			color: white;
+			text-decoration: none;
+			padding: 15px;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			transition: background-color 0.3s;
+		}
+
+		.sidebar a:hover {
+			background-color: #34495e;
+		}
+
+		.main-content {
+			flex-grow: 1;
+			padding: 20px;
+			background: url('https://resize.indiatvnews.com/en/resize/newbucket/715_-/2017/09/voters-1506405040.jpg') no-repeat center center;
+			background-size: cover;
+			position: relative;
+			color: #333333;
+			overflow: auto;
+		}
+
+		.main-content::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.8);
+			z-index: 1;
+		}
+
+		.main-content .content-wrapper {
+			position: relative;
+			z-index: 2;
+		}
+
+		.button-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 30px;
+			margin-top: 30px;
+		}
+
+		.button-container a {
+			display: block;
+			width: 200px;
+			padding: 20px;
+			text-align: center;
+			text-decoration: none;
+			color: white;
+			background-color: #3498DB;
+			border-radius: 10px;
+			font-size: 18px;
+			font-weight: bold;
+			transition: background-color 0.3s, transform 0.3s;
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.button-container a:hover {
+			background-color: #2980B9;
+			transform: scale(1.05);
+		}
+
+		.images-container {
+			display: flex;
+			justify-content: center;
+			gap: 40px;
+			margin-top: 100px;
+		}
+
+		.images-container img {
+			width: 300px; 
+			height:300px;
+			border-radius: 50%;
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s;
+		}
+
+		.images-container img:hover {
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<h1>Voting Management System</h1>
+	</div>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Dashboard</h2>
+			<a th:href="@{/adminRegister}">Admin</a>
+			<a th:href="@{/voterRegister}">Voter</a>
+		</div>
+		<div class="main-content">
+			<div class="content-wrapper">
+				<div class="images-container">
+					<img src="https://th.bing.com/th/id/OIP.X3eiPMBA3o0FTfvXcsogRwHaHa?rs=1&pid=ImgDetMain" alt="Vote Icon 1">
+					<img src="https://img.freepik.com/premium-photo/vote-india-concept-design-background_1102-12234.jpg" alt="Vote Icon 2">
+					<img src="https://th.bing.com/th/id/OIP.k-6Sg65-b-ofvBItgjFr8gHaEK?w=750&h=422&rs=1&pid=ImgDetMain" alt="Vote Icon 3">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Voter Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+        }
+
+        .action-buttons a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .edit {
+            background-color: #2c3e50;
+        }
+
+        .edit:hover {
+            background-color: rgb(0, 64, 128);
+        }
+
+        .delete {
+            background-color: #E67E22;
+        }
+
+        .delete:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Details</h1>
+        <p>Voter ID: <span th:text="${voter.id}"></span></p>
+        <p>Name: <span th:text="${voter.name}"></span></p>
+        <p>Date of Birth: <span th:text="${voter.dob}"></span></p>
+        <p>Gender: <span th:text="${voter.gender}"></span></p>
+        <p>Username: <span th:text="${voter.username}"></span></p>
+        <div class="action-buttons">
+            <a th:href="@{/editOwnDetails/{id}(id=${voter.id})}" class="edit">Edit</a>
+            <a th:href="@{/deleteOwnDetails/{id}(id=${voter.id})}" class="delete"
+                onclick="return confirm('Are you sure you want to delete ?');">Delete</a>
+        </div>
+    </div>
+</body>
+
+</html>

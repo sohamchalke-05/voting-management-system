@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Admin Login</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background: linear-gradient(to right, #ff7e5f, #feb47b);
+			color: #fff;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+
+		.container {
+			max-width: 400px;
+			margin: 100px auto;
+			padding: 20px;
+			background-color: #ffffff;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		}
+
+		h2 {
+			color: #2c3e50;
+			margin-bottom: 20px;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+			text-align: left;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: #2c3e50;
+			/* Dark color for better visibility */
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+
+		button {
+			background-color: #2c3e50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			margin: 10px 0;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		button:hover {
+			background-color: rgb(0, 64, 128);
+			/* Royal Blue */
+		}
+
+		.error {
+			color: #ff6347;
+			margin-top: 10px;
+		}
+
+		.additional-links {
+			margin-top: 20px;
+		}
+
+		.additional-links a {
+			display: inline-block;
+			margin: 5px;
+			padding: 10px;
+			color: #ffffff;
+			background-color: rgb(255, 128, 0);
+			/* Orange */
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 16px;
+			transition: background-color 0.3s ease;
+		}
+
+		.additional-links a:hover {
+			background-color: #E67E22;
+			/* Darker Orange */
+		}
+
+		.link a {
+			color: #3498DB;
+			/* Sidebar Blue */
+			text-decoration: none;
+		}
+
+		.link a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Admin Login</h2>
+		<form th:action="@{/goAdminLogin}" method="post">
+			<div class="form-group">
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required>
+			</div>
+			<button type="submit">Login</button>
+			<div th:if="${error}">
+				<p class="error" th:text="${error}"></p>
+			</div>
+		</form>
+		<div class="additional-links">
+			<a th:href="@{/Main}">Back to Main Dashboard</a>
+		</div>
+		<div class="link">
+			<a th:href="@{/adminRegister}">New ? Click here to register</a>
+		</div>
+	</div>
+</body>
+
+</html>
